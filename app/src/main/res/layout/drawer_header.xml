@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--тема для дровера выбрана отличная от основной-->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/drawer_header_height"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <!-- здесь разместить каритинку-заголовок -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

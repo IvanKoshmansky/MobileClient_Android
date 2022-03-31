@@ -1,0 +1,29 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="dataRow"
+            type="com.example.android.mobileclient.data.DataPagingObject" />
+    </data>
+
+    <!-- layout-контейнер -->
+    <com.example.android.mobileclient.utils.LinearLayoutEx
+        android:id="@+id/data_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="@style/Body"
+        android:background="@color/colorBackgroundLight">
+
+        <!-- фиксированное поле: дата-время -->
+        <TextView
+            android:id="@+id/data_item_datetime_tw"
+            android:layout_width="@dimen/tab_datetime_width"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_small"
+            android:text="@{dataRow.dateTime}" />
+    </com.example.android.mobileclient.utils.LinearLayoutEx>
+
+</layout>

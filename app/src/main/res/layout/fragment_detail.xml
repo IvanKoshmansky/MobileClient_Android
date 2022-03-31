@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.android.mobileclient.overview.OverviewFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.android.mobileclient.overview.detail.DetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailFragmentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundLight">
+
+        <TextView
+            android:id="@+id/detail_devname_label"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/fragment_detail_devname_lbl"
+            app:layout_constraintBaseline_toBaselineOf="@+id/detail_devname"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/detail_devname"
+            style="@style/Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:text="@{viewModel.deviceInfo.name}"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/detail_devname_label"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/detail_fw_label"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/fragment_detail_fw_lbl"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div2"
+            app:layout_constraintEnd_toStartOf="@+id/detail_guideline_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div1" />
+
+        <TextView
+            android:id="@+id/detail_fw"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/fragment_detail_fw_hint"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="@+id/detail_guideline_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div1" />
+
+        <TextView
+            android:id="@+id/detail_channel_label"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/fragment_detail_channel_lbl"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div4"
+            app:layout_constraintEnd_toStartOf="@+id/detail_guideline_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div3" />
+
+        <TextView
+            android:id="@+id/detail_channel"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/fragment_detail_channel_hint"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/detail_guideline_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div3" />
+
+        <TextView
+            android:id="@+id/detail_reason_label"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/fragment_detail_reason_lbl"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div3"
+            app:layout_constraintEnd_toStartOf="@+id/detail_guideline_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div2" />
+
+        <TextView
+            android:id="@+id/detail_reason"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/fragment_detail_reason_hint"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/detail_guideline_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div2" />
+
+        <TextView
+            android:id="@+id/detail_signal_label"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/fragment_detail_signal_lbl"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div5"
+            app:layout_constraintEnd_toStartOf="@+id/detail_guideline_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div4" />
+
+        <TextView
+            android:id="@+id/detail_signal"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/fragment_detail_signal_hint"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/detail_guideline_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div4" />
+
+        <View
+            android:id="@+id/detail_div1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorBackgroundDark"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/detail_div4"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorBackgroundDark"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div3" />
+
+        <View
+            android:id="@+id/detail_div5"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorBackgroundDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div4" />
+
+        <View
+            android:id="@+id/detail_div2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorBackgroundDark"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div1" />
+
+        <View
+            android:id="@+id/detail_div3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorBackgroundDark"
+            app:layout_constraintBottom_toTopOf="@+id/detail_div4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/detail_guideline_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.6"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/detail_to_data_btn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_detail_to_data_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/detail_to_log"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div5"
+            android:onClick="@{() -> viewModel.onDataClicked()}" />
+
+        <Button
+            android:id="@+id/detail_to_log"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_detail_to_log_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/detail_to_data_btn"
+            app:layout_constraintTop_toBottomOf="@+id/detail_div5"
+            android:onClick="@{() -> viewModel.onDeviceLogClicked()}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

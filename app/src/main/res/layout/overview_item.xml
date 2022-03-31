@@ -1,0 +1,31 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="deviceInfo"
+            type="com.example.android.mobileclient.device.DomainDeviceInfo" />
+        <variable
+            name="clickListener"
+            type="com.example.android.mobileclient.overview.OverviewClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:onClick="@{() -> clickListener.onClick(deviceInfo)}">
+
+        <TextView
+            android:id="@+id/object_list_light_item_tw"
+            style="@style/Subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_small"
+            android:background="@color/colorBackgroundLight"
+            android:text="@{deviceInfo.name}" />
+
+    </LinearLayout>
+
+</layout>

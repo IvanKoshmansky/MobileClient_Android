@@ -1,0 +1,87 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="parameterInfo"
+            type="com.example.android.mobileclient.directory.DomainParameterInfo"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorBackgroundLight">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/colorBackgroundLight">
+
+            <TextView
+                android:id="@+id/param_detail_devtype_tw"
+                style="@style/Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_weight="1"
+                android:padding="@dimen/padding_small"
+                app:param_detail_devTypeIdString="@{parameterInfo}"/>
+
+            <TextView
+                android:id="@+id/param_detail_name_tw"
+                style="@style/Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="@dimen/padding_small"
+                android:text="@{parameterInfo.paramName}"/>
+
+            <TextView
+                android:id="@+id/param_detail_mnemocode_tw"
+                style="@style/Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="@dimen/padding_small"
+                android:text="@{parameterInfo.mnemoCode}"/>
+
+            <CheckBox
+                android:id="@+id/param_detail_show_on_table_chb"
+                style="@style/Body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_small"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:checked="@{parameterInfo.showOnTable}"/>
+
+            <CheckBox
+                android:id="@+id/param_detail_show_on_chart_chb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:padding="@dimen/padding_small"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:checked="@{parameterInfo.showOnChart}"/>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/param_detail_item_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:background="@color/colorBackgroundDark"/>
+
+    </LinearLayout>
+</layout>

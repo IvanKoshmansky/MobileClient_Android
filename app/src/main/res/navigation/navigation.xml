@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.android.mobileclient.main.MainFragment"
+        android:label="@string/fragment_main_header"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_aboutFragment2"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_paramDetailFragment"
+            app:destination="@id/paramDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.example.android.mobileclient.overview.OverviewFragment"
+        android:label="@string/fragment_overview_header"
+        tools:layout="@layout/fragment_overview" >
+        <action
+            android:id="@+id/action_overviewFragment_to_paramDetailFragment"
+            app:destination="@id/paramDetailFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.android.mobileclient.settings.SettingsFragment"
+        android:label="@string/fragment_settings_header"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.android.mobileclient.other.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/paramDetailFragment"
+        android:name="com.example.android.mobileclient.paramdetail.ParamDetailFragment"
+        android:label="@string/fragment_param_detail_label"
+        tools:layout="@layout/fragment_param_detail" />
+    <fragment
+        android:id="@+id/dataFragment"
+        android:name="com.example.android.mobileclient.data.DataFragment"
+        android:label="@string/fragment_data_header" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.android.mobileclient.overview.detail.DetailFragment"
+        android:label="@string/fragment_detail_header" >
+        <action
+            android:id="@+id/action_detailFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
+        <argument
+            android:name="objectId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_detailFragment_to_deviceLogFragment"
+            app:destination="@id/deviceLogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deviceLogFragment"
+        android:name="com.example.android.mobileclient.data.devicelog.DeviceLogFragment"
+        android:label="@string/fragment_device_log_header"
+        tools:layout="@layout/fragment_device_log" />
+</navigation>

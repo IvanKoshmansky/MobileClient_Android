@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="deviceLogItem"
+            type="com.example.android.mobileclient.database.DeviceLogObject" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tw_log_date_time"
+            style="@style/Body"
+            android:layout_width="@dimen/tab_datetime_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            tools:text="@string/fragment_device_log_datetime_lbl"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{deviceLogItem.datetime}" />
+
+        <View
+            android:id="@+id/divider_vertical_tab1"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@color/colorBackgroundDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tw_log_date_time"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tw_log_duration"
+            style="@style/Body"
+            android:layout_width="@dimen/tab_text_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            tools:text="@string/fragment_device_log_duration_lbl"
+            app:layout_constraintStart_toEndOf="@+id/divider_vertical_tab1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showSessionDuration="@{deviceLogItem}"/>
+
+        <View
+            android:id="@+id/divider_vertical_tab2"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@color/colorBackgroundDark"
+            app:layout_constraintStart_toEndOf="@+id/tw_log_duration"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/tw_log_fw_version"
+            style="@style/Body"
+            android:layout_width="@dimen/tab_text_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            tools:text="@string/fragment_device_log_fw_version_lbl"
+            app:layout_constraintStart_toEndOf="@+id/divider_vertical_tab2"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{deviceLogItem.fwVersion}" />
+
+        <View
+            android:id="@+id/divider_vertical_tab3"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@color/colorBackgroundDark"
+            app:layout_constraintStart_toEndOf="@+id/tw_log_fw_version"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/tw_log_channel"
+            style="@style/Body"
+            android:layout_width="@dimen/tab_text_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            tools:text="@string/fragment_device_log_channel_lbl"
+            app:layout_constraintStart_toEndOf="@+id/divider_vertical_tab3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showChannel="@{deviceLogItem}" />
+
+        <View
+            android:id="@+id/divider_vertical_tab4"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@color/colorBackgroundDark"
+            app:layout_constraintStart_toEndOf="@+id/tw_log_channel"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/tw_log_signal_level"
+            style="@style/Body"
+            android:layout_width="@dimen/tab_text_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            tools:text="@string/fragment_device_log_signal_level_lbl"
+            app:layout_constraintStart_toEndOf="@+id/divider_vertical_tab4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showSignalLevel="@{deviceLogItem}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

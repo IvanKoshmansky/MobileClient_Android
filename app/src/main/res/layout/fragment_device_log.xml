@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.android.mobileclient.data.devicelog.DeviceLogFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.android.mobileclient.data.devicelog.DeviceLogViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_device_log"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundLight">
+
+        <TextView
+            android:id="@+id/tw_period_begin_lbl"
+            style="@style/Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/fragment_device_log_tw_period_begin_lbl"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_device_log_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tw_date_begin"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:hint="@string/fragment_device_log_date_begin_hint"
+            app:layout_constraintEnd_toStartOf="@+id/btn_begin_date_sel"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tw_period_begin_lbl"
+            tools:text="Начальная дата"
+            android:text="@{viewModel.beginDateTextView}" />
+
+        <Button
+            android:id="@+id/btn_begin_date_sel"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:text="@string/fragment_device_log_begin_date_btn"
+            app:layout_constraintBottom_toBottomOf="@+id/tw_date_begin"
+            app:layout_constraintEnd_toStartOf="@+id/divider_vertical"
+            app:layout_constraintTop_toTopOf="@+id/tw_date_begin"
+            android:onClick="@{() -> viewModel.onBeginDateClick()}" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tw_date_begin,btn_begin_date_sel,tw_date_end,btn_end_date_sel" />
+
+        <TextView
+            android:id="@+id/tw_time_begin"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:hint="@string/fragment_device_log_time_begin_hint"
+            app:layout_constraintEnd_toStartOf="@+id/btn_begin_time_sel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrier1"
+            tools:text="Начальное время"
+            android:text="@{viewModel.beginTimeTextView}" />
+
+        <Button
+            android:id="@+id/btn_begin_time_sel"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:text="@string/fragment_device_log_begin_time_btn"
+            app:layout_constraintBottom_toBottomOf="@+id/tw_time_begin"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_device_log_guideline"
+            app:layout_constraintTop_toTopOf="@+id/tw_time_begin"
+            android:onClick="@{() -> viewModel.onBeginTimeClick()}" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tw_time_begin,btn_begin_time_sel,tw_time_end,btn_end_time_sel" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/fragment_device_log_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider_vertical"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/colorBackgroundDark"
+            app:layout_constraintBottom_toTopOf="@+id/barrier2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tw_period_end_lbl"
+            style="@style/Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/fragment_device_log_period_end_lbl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/fragment_device_log_guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tw_date_end"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:hint="@string/fragment_device_log_date_end_hint"
+            app:layout_constraintEnd_toStartOf="@+id/btn_end_date_sel"
+            app:layout_constraintStart_toStartOf="@+id/fragment_device_log_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tw_period_end_lbl"
+            tools:text="Конечная дата"
+            android:text="@{viewModel.endDateTextView}" />
+
+        <Button
+            android:id="@+id/btn_end_date_sel"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:text="@string/fragment_device_log_end_date_btn"
+            app:layout_constraintBottom_toBottomOf="@+id/tw_date_end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tw_date_end"
+            android:onClick="@{() -> viewModel.onEndDateClick()}" />
+
+        <TextView
+            android:id="@+id/tw_time_end"
+            style="@style/Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:hint="@string/fragment_device_log_time_end_hint"
+            app:layout_constraintEnd_toStartOf="@+id/btn_end_time_sel"
+            app:layout_constraintStart_toStartOf="@+id/fragment_device_log_guideline"
+            app:layout_constraintTop_toBottomOf="@id/barrier1"
+            android:text="@{viewModel.endTimeTextView}" />
+
+        <Button
+            android:id="@+id/btn_end_time_sel"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:text="@string/fragment_device_log_end_time_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tw_time_end"
+            app:layout_constraintBottom_toBottomOf="@+id/tw_time_end"
+            android:onClick="@{() -> viewModel.onEndTimeClick()}" />
+
+        <Button
+            android:id="@+id/btn_load"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/fragment_device_log_load_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrier2"
+            android:onClick="@{() -> viewModel.onLoadDeviceLogClick()}"/>
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_load">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tw_log_date_time"
+                    style="@style/Body"
+                    android:layout_width="@dimen/tab_datetime_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/fragment_device_log_datetime_lbl"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divider_vertical_tab1"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/colorBackgroundDark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tw_log_date_time"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tw_log_duration"
+                    style="@style/Body"
+                    android:layout_width="@dimen/tab_text_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/fragment_device_log_duration_lbl"
+                    app:layout_constraintStart_toEndOf="@+id/divider_vertical_tab1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divider_vertical_tab2"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/colorBackgroundDark"
+                    app:layout_constraintStart_toEndOf="@+id/tw_log_duration"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <TextView
+                    android:id="@+id/tw_log_fw_version"
+                    style="@style/Body"
+                    android:layout_width="@dimen/tab_text_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/fragment_device_log_fw_version_lbl"
+                    app:layout_constraintStart_toEndOf="@+id/divider_vertical_tab2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divider_vertical_tab3"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/colorBackgroundDark"
+                    app:layout_constraintStart_toEndOf="@+id/tw_log_fw_version"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <TextView
+                    android:id="@+id/tw_log_channel"
+                    style="@style/Body"
+                    android:layout_width="@dimen/tab_text_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/fragment_device_log_channel_lbl"
+                    app:layout_constraintStart_toEndOf="@+id/divider_vertical_tab3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divider_vertical_tab4"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/colorBackgroundDark"
+                    app:layout_constraintStart_toEndOf="@+id/tw_log_channel"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <TextView
+                    android:id="@+id/tw_log_signal_level"
+                    style="@style/Body"
+                    android:layout_width="@dimen/tab_text_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/fragment_device_log_signal_level_lbl"
+                    app:layout_constraintStart_toEndOf="@+id/divider_vertical_tab4"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="tw_log_date_time,tw_log_duration,tw_log_fw_version,tw_log_channel,tw_log_signal_level" />
+
+                <View
+                    android:id="@+id/divider_horizontal_tab"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/colorBackgroundDark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/barrier3" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rw_log_table"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_horizontal_tab" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
